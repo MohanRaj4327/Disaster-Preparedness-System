@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: disaster-preparedness
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/disaster_preparedness
+
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
+
+server:
+  port: 8080
