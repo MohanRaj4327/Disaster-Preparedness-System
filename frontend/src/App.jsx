@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import StudentDashboard from './pages/StudentDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import CampusMap from './pages/CampusMap';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/student" element={<StudentDashboard />} />
             <Route path="/teacher" element={<TeacherDashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/campus" element={<CampusMap />} />
           </Routes>
         </main>
       </div>
