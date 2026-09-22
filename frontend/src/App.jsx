@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import StudentDashboard from './pages/StudentDashboard';
+import TeacherDashboard from './pages/TeacherDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -6,10 +9,13 @@ function App() {
       <div className="min-h-screen flex flex-col bg-game-bg">
         <header className="glass-panel sticky top-0 z-50 p-4 m-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-game-accent">Disaster Edu</h1>
-          <nav className="flex gap-4">
+          <nav className="flex gap-4 items-center">
             <Link to="/" className="hover:text-game-accent transition">Home</Link>
             <Link to="/about" className="hover:text-game-accent transition">About</Link>
-            <Link to="/login" className="px-4 py-2 bg-game-accent rounded text-white font-semibold">Login</Link>
+            <Link to="/student" className="hover:text-game-accent transition">Student</Link>
+            <Link to="/teacher" className="hover:text-game-accent transition">Teacher</Link>
+            <Link to="/admin" className="hover:text-game-accent transition">Admin</Link>
+            <Link to="/login" className="px-4 py-2 bg-game-accent rounded text-white font-semibold hover:bg-game-accent/80 transition">Login</Link>
           </nav>
         </header>
 
@@ -18,6 +24,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/student" element={<StudentDashboard />} />
+            <Route path="/teacher" element={<TeacherDashboard />} />
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </main>
       </div>
