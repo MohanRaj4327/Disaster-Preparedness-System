@@ -23,7 +23,7 @@ const StudentDashboard = () => {
                 <div className="glass-panel p-6 flex flex-col gap-4">
                     <h3 className="text-xl font-bold">3D Campus</h3>
                     <p className="text-gray-300 text-sm">Explore the virtual campus, find evacuation routes, and identify hazards.</p>
-                    <Link to="/campus" className="mt-auto bg-game-accent p-2 text-center rounded hover:bg-opacity-80 transition">Enter 3D Campus</Link>
+                    <Link to="/campus" className="mt-auto bg-game-accent p-2 text-center rounded hover:bg-game-accent/80 transition">Enter 3D Campus</Link>
                 </div>
 
                 <div className="glass-panel p-6 flex flex-col gap-4">
