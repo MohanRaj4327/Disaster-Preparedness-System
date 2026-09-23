@@ -2,26 +2,28 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import StudentDashboard from './pages/StudentDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import AdminDashboard from './pages/AdminDashboard';
-import CampusMap from './pages/CampusMap';
 import GrievanceForm from './pages/GrievanceForm';
+import GrievanceTracker from './pages/GrievanceTracker';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-game-bg">
-        <header className="glass-panel sticky top-0 z-50 p-4 m-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-game-accent">Disaster Edu</h1>
-          <nav className="flex gap-4 items-center">
-            <Link to="/" className="hover:text-game-accent transition">Home</Link>
-            <Link to="/about" className="hover:text-game-accent transition">About</Link>
-            <Link to="/citizen" className="hover:text-game-accent transition">Citizen Portal</Link>
-            <Link to="/authority" className="hover:text-game-accent transition">Authority Portal</Link>
-            <Link to="/admin" className="hover:text-game-accent transition">Admin</Link>
-            <Link to="/login" className="px-4 py-2 bg-game-accent rounded text-white font-semibold hover:bg-game-accent/80 transition">Login</Link>
+      <div className="min-h-screen flex flex-col bg-gov-bg">
+        <header className="bg-gov-primary text-white sticky top-0 z-50 p-4 shadow-md flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <h1 className="text-2xl font-bold tracking-wide">National Disaster & Grievance Portal</h1>
+          </div>
+          <nav className="flex gap-4 items-center font-medium">
+            <Link to="/" className="hover:text-gray-300 transition">Home</Link>
+            <Link to="/about" className="hover:text-gray-300 transition">About</Link>
+            <Link to="/citizen" className="hover:text-gray-300 transition">Citizen Portal</Link>
+            <Link to="/authority" className="hover:text-gray-300 transition">Authority Portal</Link>
+            <Link to="/admin" className="hover:text-gray-300 transition">Admin</Link>
+            <Link to="/login" className="px-4 py-2 bg-gov-accent rounded text-white hover:bg-red-700 transition shadow">Login</Link>
           </nav>
         </header>
 
-        <main className="flex-grow p-4">
+        <main className="flex-grow p-6">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -29,21 +31,32 @@ function App() {
             <Route path="/citizen" element={<StudentDashboard />} />
             <Route path="/authority" element={<TeacherDashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/campus" element={<CampusMap />} />
             <Route path="/complaints/new" element={<GrievanceForm />} />
+            <Route path="/complaints/track" element={<GrievanceTracker />} />
           </Routes>
         </main>
+        
+        <footer className="bg-gray-800 text-white text-center p-4 mt-auto">
+          <p>&copy; {new Date().getFullYear()} Government Disaster Management Authority. All rights reserved.</p>
+        </footer>
       </div>
     </Router>
   );
 }
 
 const Home = () => (
-  <div className="flex flex-col items-center justify-center h-[70vh]">
-    <h2 className="text-5xl font-bold mb-4 text-center">National Disaster Awareness & Grievance Portal</h2>
-    <p className="text-xl text-gray-300 text-center max-w-2xl">
-      A government initiative for citizens to learn about disaster preparedness, participate in 3D simulations, and file grievances regarding potential man-made disasters.
-    </p>
+  <div className="flex flex-col items-center justify-center h-[70vh] text-center">
+    <div className="official-panel max-w-3xl">
+      <h2 className="text-4xl font-extrabold mb-4 text-gov-primary border-b-2 border-gov-accent pb-2 inline-block">Official Grievance & Awareness Portal</h2>
+      <p className="text-lg text-gray-700 mt-6 leading-relaxed">
+        Welcome to the official portal for citizens to report man-made disasters, industrial hazards, and safety violations. 
+        Track your filed grievances and access essential national disaster preparedness resources.
+      </p>
+      <div className="mt-8 flex justify-center gap-4">
+        <Link to="/complaints/new" className="px-6 py-3 bg-gov-accent text-white font-bold rounded shadow hover:bg-red-700 transition">File a Grievance</Link>
+        <Link to="/complaints/track" className="px-6 py-3 bg-gov-primary text-white font-bold rounded shadow hover:bg-blue-900 transition">Track Status</Link>
+      </div>
+    </div>
   </div>
 );
 

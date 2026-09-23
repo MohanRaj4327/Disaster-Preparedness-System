@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-game-bg: #1a1a2e;
-  --color-game-primary: #16213e;
-  --color-game-accent: #e94560;
-  --color-game-secondary: #0f3460;
+  --color-gov-bg: #f4f6f9;
+  --color-gov-primary: #003366;
+  --color-gov-accent: #cc0000;
+  --color-gov-secondary: #ffffff;
+  --color-gov-text: #333333;
 }
 
 @layer base {
   body {
-    @apply bg-game-bg text-white font-sans antialiased;
+    @apply bg-gov-bg text-gov-text font-sans antialiased;
   }
 }
 
-.glass-panel {
-  @apply bg-game-primary/50 backdrop-blur-md border border-white/10 rounded-xl shadow-lg;
+.official-panel {
+  @apply bg-white border border-gray-200 rounded-lg shadow-md p-6;
 }
